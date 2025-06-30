@@ -1,0 +1,455 @@
+// 60 Days of Digital
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Challenge Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .calendar-day.active {
+            background-color: #6e8efb;
+            color: white;
+            border-radius: 50%;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="gradient-bg text-white">
+        <div class="container mx-auto px-4 py-8">
+            <header class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-compass text-2xl"></i>
+                    <h1 class="text-2xl font-bold">Web3 Challenge Calendar</h1>
+                </div>
+                <div class="hidden md:flex space-x-4">
+                    <button class="px-4 py-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition">Connect Wallet</button>
+                    <button class="px-4 py-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition">
+                        <i class="fas fa-user mr-2"></i> Account
+                    </button>
+                </div>
+                <button class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Upcoming Challenges</h2>
+                    <p class="text-white text-opacity-80">Discover and participate in the latest Web3 challenges</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex space-x-2">
+                    <button class="px-4 py-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition">
+                        <i class="fas fa-filter mr-2"></i> Filter
+                    </button>
+                    <button class="px-4 py-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition">
+                        <i class="fas fa-plus mr-2"></i> Add Challenge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 -mt-12">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-800">June 2023</h3>
+                <div class="flex space-x-2">
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-2 text-center mb-4">
+                <div class="text-gray-500 font-medium">Sun</div>
+                <div class="text-gray-500 font-medium">Mon</div>
+                <div class="text-gray-500 font-medium">Tue</div>
+                <div class="text-gray-500 font-medium">Wed</div>
+                <div class="text-gray-500 font-medium">Thu</div>
+                <div class="text-gray-500 font-medium">Fri</div>
+                <div class="text-gray-500 font-medium">Sat</div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-2 text-center">
+                <div class="h-10 flex items-center justify-center text-gray-400">28</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">29</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">30</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">31</div>
+                <div class="h-10 flex items-center justify-center">1</div>
+                <div class="h-10 flex items-center justify-center">2</div>
+                <div class="h-10 flex items-center justify-center">3</div>
+                <div class="h-10 flex items-center justify-center">4</div>
+                <div class="h-10 flex items-center justify-center">5</div>
+                <div class="h-10 flex items-center justify-center">6</div>
+                <div class="h-10 flex items-center justify-center active">7</div>
+                <div class="h-10 flex items-center justify-center">8</div>
+                <div class="h-10 flex items-center justify-center">9</div>
+                <div class="h-10 flex items-center justify-center">10</div>
+                <div class="h-10 flex items-center justify-center">11</div>
+                <div class="h-10 flex items-center justify-center">12</div>
+                <div class="h-10 flex items-center justify-center">13</div>
+                <div class="h-10 flex items-center justify-center">14</div>
+                <div class="h-10 flex items-center justify-center">15</div>
+                <div class="h-10 flex items-center justify-center">16</div>
+                <div class="h-10 flex items-center justify-center">17</div>
+                <div class="h-10 flex items-center justify-center">18</div>
+                <div class="h-10 flex items-center justify-center">19</div>
+                <div class="h-10 flex items-center justify-center">20</div>
+                <div class="h-10 flex items-center justify-center">21</div>
+                <div class="h-10 flex items-center justify-center">22</div>
+                <div class="h-10 flex items-center justify-center">23</div>
+                <div class="h-10 flex items-center justify-center">24</div>
+                <div class="h-10 flex items-center justify-center">25</div>
+                <div class="h-10 flex items-center justify-center">26</div>
+                <div class="h-10 flex items-center justify-center">27</div>
+                <div class="h-10 flex items-center justify-center">28</div>
+                <div class="h-10 flex items-center justify-center">29</div>
+                <div class="h-10 flex items-center justify-center">30</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">1</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">2</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">3</div>
+                <div class="h-10 flex items-center justify-center text-gray-400">4</div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Today's Challenges (June 7)</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Challenge Card 1 -->
+                <div class="challenge-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 text-xs font-semibold bg-purple-100 text-purple-800 rounded-full">DeFi</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-share-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Uniswap V3 Liquidity Challenge</h4>
+                        <p class="text-gray-600 text-sm mb-4">Create and optimize a liquidity position on Uniswap V3 with at least $500 in assets.</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png" alt="Uniswap" class="w-6 h-6 rounded-full">
+                                <span class="text-sm text-gray-600">Uniswap</span>
+                            </div>
+                            <span class="text-xs text-gray-500">Ends in 2d 5h</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-700">Prize: $2000</span>
+                        <button class="px-4 py-1 bg-purple-600 text-white text-sm rounded-full hover:bg-purple-700 transition">Join</button>
+                    </div>
+                </div>
+                
+                <!-- Challenge Card 2 -->
+                <div class="challenge-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full">NFT</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-share-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">OpenSea Collection Creation</h4>
+                        <p class="text-gray-600 text-sm mb-4">Create and launch an NFT collection on OpenSea with at least 10 unique items.</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <img src="https://cryptologos.cc/logos/opensea-opensea-logo.png" alt="OpenSea" class="w-6 h-6 rounded-full">
+                                <span class="text-sm text-gray-600">OpenSea</span>
+                            </div>
+                            <span class="text-xs text-gray-500">Ends in 1d 12h</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-700">Prize: 1 ETH</span>
+                        <button class="px-4 py-1 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700 transition">Join</button>
+                    </div>
+                </div>
+                
+                <!-- Challenge Card 3 -->
+                <div class="challenge-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">DAO</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-share-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Aragon DAO Proposal</h4>
+                        <p class="text-gray-600 text-sm mb-4">Create and pass a governance proposal in an Aragon DAO with at least 10 votes.</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <img src="https://cryptologos.cc/logos/aragon-ant-logo.png" alt="Aragon" class="w-6 h-6 rounded-full">
+                                <span class="text-sm text-gray-600">Aragon</span>
+                            </div>
+                            <span class="text-xs text-gray-500">Ends in 3d 8h</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-700">Prize: 1500 ANT</span>
+                        <button class="px-4 py-1 bg-green-600 text-white text-sm rounded-full hover:bg-green-700 transition">Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Upcoming This Week</h3>
+            
+            <div class="overflow-x-auto scrollbar-hide">
+                <div class="flex space-x-4 pb-4" style="min-width: max-content;">
+                    <!-- Day Card 1 -->
+                    <div class="w-48 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="p-4 bg-purple-100">
+                            <p class="text-sm font-medium text-purple-800">Thursday, June 8</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <p class="text-xs text-gray-500 mb-1">10:00 AM</p>
+                                <p class="text-sm font-medium text-gray-800">Polygon Hackathon</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">2:00 PM</p>
+                                <p class="text-sm font-medium text-gray-800">Chainlink Oracles</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day Card 2 -->
+                    <div class="w-48 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="p-4 bg-blue-100">
+                            <p class="text-sm font-medium text-blue-800">Friday, June 9</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <p class="text-xs text-gray-500 mb-1">9:00 AM</p>
+                                <p class="text-sm font-medium text-gray-800">ENS Domain Setup</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">4:30 PM</p>
+                                <p class="text-sm font-medium text-gray-800">The Graph Indexing</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day Card 3 -->
+                    <div class="w-48 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="p-4 bg-green-100">
+                            <p class="text-sm font-medium text-green-800">Saturday, June 10</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <p class="text-xs text-gray-500 mb-1">11:00 AM</p>
+                                <p class="text-sm font-medium text-gray-800">Arbitrum Bridge</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">6:00 PM</p>
+                                <p class="text-sm font-medium text-gray-800">Optimism Airdrop</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day Card 4 -->
+                    <div class="w-48 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="p-4 bg-yellow-100">
+                            <p class="text-sm font-medium text-yellow-800">Sunday, June 11</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <p class="text-xs text-gray-500 mb-1">1:00 PM</p>
+                                <p class="text-sm font-medium text-gray-800">ZKSync Rollup</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">3:30 PM</p>
+                                <p class="text-sm font-medium text-gray-800">StarkNet Cairo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day Card 5 -->
+                    <div class="w-48 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="p-4 bg-red-100">
+                            <p class="text-sm font-medium text-red-800">Monday, June 12</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <p class="text-xs text-gray-500 mb-1">10:30 AM</p>
+                                <p class="text-sm font-medium text-gray-800">Aave Flash Loans</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">5:00 PM</p>
+                                <p class="text-sm font-medium text-gray-800">Compound Governance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Popular Categories</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-coins text-xl"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">DeFi</p>
+                    <p class="text-xs text-gray-500">12 challenges</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">NFT</p>
+                    <p class="text-xs text-gray-500">8 challenges</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">DAO</p>
+                    <p class="text-xs text-gray-500">5 challenges</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-gamepad text-xl"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">Gaming</p>
+                    <p class="text-xs text-gray-500">7 challenges</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-layer-group text-xl"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">Layer 2</p>
+                    <p class="text-xs text-gray-500">6 challenges</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">Security</p>
+                    <p class="text-xs text-gray-500">4 challenges</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-100 py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <i class="fas fa-compass text-2xl text-purple-600"></i>
+                    <h2 class="text-xl font-bold text-gray-800">Web3 Challenge Calendar</h2>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-purple-600">About</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600">Challenges</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600">Submit</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-600 hover:text-purple-600 text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 text-xl">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 text-xl">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 text-xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 Web3 Challenge Calendar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle calendar day selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = document.querySelectorAll('.calendar-day:not(.text-gray-400)');
+            
+            days.forEach(day => {
+                day.addEventListener('click', function() {
+                    // Remove active class from all days
+                    days.forEach(d => d.classList.remove('active'));
+                    // Add active class to clicked day
+                    this.classList.add('active');
+                    
+                    // In a real app, you would fetch challenges for the selected day here
+                    console.log('Selected day:', this.textContent);
+                });
+            });
+            
+            // Handle challenge card hover effects
+            const challengeCards = document.querySelectorAll('.challenge-card');
+            challengeCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
